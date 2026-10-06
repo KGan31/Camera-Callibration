@@ -2,6 +2,8 @@
 
 This project implements a full camera calibration pipeline from scratch and compares it with OpenCV using the same image sets.
 
+Kaggle Dataset Link: Set A and C: https://www.kaggle.com/datasets/kgan31/charuco-board-dataset
+
 ## Goals
 
 1. Start with a **standard ChArUco board** and implement:
