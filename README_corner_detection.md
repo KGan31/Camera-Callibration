@@ -100,9 +100,9 @@ This represents a ChArUco board with:
 
 The board contains:
 
-\[
+$
 (10-1)(7-1)=54
-\]
+$
 
 inner ChArUco corners.
 
@@ -122,9 +122,9 @@ These are the known 3D board coordinates:
 
 Since the board is planar:
 
-\[
+$
 Z=0
-\]
+$
 
 ### ArUco marker coordinates
 
@@ -190,9 +190,9 @@ $$
 
 where:
 
-- \(\mathbf{X}\) is a point in the board coordinate system
-- \(\mathbf{x}\) is its image coordinate
-- \(H\) is the planar homography
+- $\mathbf{X}$ is a point in the board coordinate system
+- $\mathbf{x}$ is its image coordinate
+- $H$ is the planar homography
 
 The homography is estimated using the four known corners of the detected marker:
 
@@ -398,13 +398,13 @@ common = sorted(set(ours) & set(ref))
 
 For every common corner:
 
-\[
+$
 e_i =
 \sqrt{
 (x_i^{ours}-x_i^{opencv})^2+
 (y_i^{ours}-y_i^{opencv})^2
 }
-\]
+$
 
 The script reports:
 
@@ -469,21 +469,21 @@ H, _ = cv2.findHomography(X, x, 0)
 
 The predicted image points are:
 
-\[
+$
 \hat{x}_i = H X_i
-\]
+$
 
 The residual is:
 
-\[
+$
 r_i = x_i-\hat{x}_i
-\]
+$
 
 and its magnitude is:
 
-\[
+$
 \|r_i\|_2
-\]
+$
 
 The script reports the mean and maximum residual.
 
@@ -590,10 +590,10 @@ Final Camera Matrix + Distortion
 
 The output of this module is therefore a set of accurate correspondences:
 
-\[
+$
 (X_i,Y_i,0)
 \leftrightarrow
 (u_i,v_i)
-\]
+$
 
 which can subsequently be used for homography estimation and camera calibration.
