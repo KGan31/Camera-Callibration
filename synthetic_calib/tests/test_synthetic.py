@@ -1,10 +1,10 @@
-"""Checks for calib/synthetic.py.
-Run from the repo folder with:   python3 -m pytest calib/tests
-or without pytest:               python3 -m calib.tests.test_synthetic
+"""Checks for synthetic_calib/synthetic.py.
+Run from the repo folder with:   python3 -m pytest synthetic_calib/tests
+or without pytest:               python3 -m synthetic_calib.tests.test_synthetic
 """
 import numpy as np
 import cv2
-from calib.synthetic import (make_views, board_points, project_points,
+from synthetic_calib.synthetic import (make_views, board_points, project_points,
                              IMAGE_W, IMAGE_H, BOARD_COLS, BOARD_ROWS, SQUARE_SIZE)
 
 
