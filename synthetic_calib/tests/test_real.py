@@ -1,7 +1,7 @@
 import cv2, numpy as np, sys
-from calib.board import BoardModel
-from calib.predict import predict_corners
-from calib.refine import refine_corner
+from synthetic_calib.board import BoardModel
+from synthetic_calib.predict import predict_corners
+from synthetic_calib.refine import refine_corner
 aruco = cv2.aruco
 
 path = "data/set_a/A_18.jpeg" # printed board, photographed with a phone

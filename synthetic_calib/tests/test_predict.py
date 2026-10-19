@@ -1,7 +1,7 @@
 import cv2, numpy as np
-from calib.board import BoardModel
-from calib.predict import predict_corners
-from calib.refine import refine_corner
+from synthetic_calib.board import BoardModel
+from synthetic_calib.predict import predict_corners
+from synthetic_calib.refine import refine_corner
 aruco = cv2.aruco
 
 model = BoardModel()
