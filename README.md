@@ -39,6 +39,29 @@ Because the custom board has cut-outs and missing cells:
 - Do not assume a fully visible regular grid.
 - Ensure partial board visibility still contributes correctly to calibration.
 
+#### Custom Board Physical Specifications
+
+| Parameter | Dimension / Value |
+| :--- | :--- |
+| **Dark Square Size** | 10 × 10 cm |
+| **Marker Size** | 7 × 7 cm |
+| **Per Square Pattern** | 30 × 30 |
+| **Circular Cut-out** | 24 cm diameter |
+| **Top Border** | 2.8 cm |
+| **Bottom Border** | 3.2 cm |
+| **Left Border** | 3.0 cm |
+| **Right Border** | 2.9 cm |
+
+#### Camera Capture Settings
+
+| Setting | Value |
+| :--- | :--- |
+| **White Balance (WB)** | 6000 K |
+| **Focus** | 2nd last dot (manual) |
+| **Shutter Speed** | 1/100 s |
+| **ISO** | 2000 |
+
+
 ## Evaluation and Reporting
 
 For both standard and custom boards, report:
