@@ -90,3 +90,25 @@ For both standard and custom boards, report:
 - OpenCV comparison using identical image sets
 - Quantitative report/tables/plots for 3-to-30 image experiments
 - Short analysis of fronto-parallel degeneracy effects on focal length estimation
+
+
+## Real-image calibration (Sets A, B, D)
+
+Run `python -m calib.run_real_compare` from the repo root. It writes `results/real/report.md` and CSVs.
+
+- `calib/real_calibrate.py`: corners from marker prediction + sub-pixel refinement, our calibration
+  (`synthetic_calib.calibrate_full`) and the OpenCV baseline on the same corners. Images are read as raw
+  sensor pixels (`IMREAD_IGNORE_ORIENTATION`): Set A carries EXIF rotation tags, and letting OpenCV rotate
+  them mixes portrait and landscape frames, which breaks a single camera matrix.
+- `calib/custom_board.py`: geometry of the lab board built from the specs above. 9x9 squares of 10 cm in
+  3x3 blocks of 30 cm; the four corners and the centre carry a 3x3 ChArUco patch, the four edge blocks are
+  the 24 cm cut-outs. Marker IDs (`DICT_5X5_100`) run row-major over the white squares of the top patches
+  (0-7), the bottom patches (8-15), then the centre patch (16-19). 20 valid chessboard corners
+  (4 per patch); `diagonal_junctions=True` adds the 4 corners where patches touch diagonally.
+- Tests: `pytest calib/tests/test_custom_board.py calib/tests/test_real_calibration.py`.
+
+### Image-count sweep and fronto-parallel study (real photos)
+
+`python -m calib.run_real_sweep` (about 17 minutes) writes `results/real_sweep/`: the 3-to-30 sweep on Sets A and B
+(10 random subsets per count, ours and OpenCV on the same subsets), the per-view board tilt, and Set C against Set A.
+With every image used there is only one subset, so that point has no spread and is left blank in the plots.

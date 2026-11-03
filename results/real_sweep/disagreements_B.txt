@@ -1,0 +1,67 @@
+count 3 subset 0: fx differs by 2.01 %; fy differs by 2.33 %; cx differs by 14.7 px; cy differs by 5.8 px
+count 3 subset 4: fx differs by 1.43 %; fy differs by 1.70 %; cx differs by 14.4 px; cy differs by 4.3 px
+count 3 subset 5: cx differs by 2.2 px; cy differs by 2.4 px
+count 3 subset 6: cx differs by 2.0 px; cy differs by 4.9 px; mean error differs by 0.053 px
+count 3 subset 7: cy differs by 4.8 px
+count 3 subset 8: cy differs by 2.2 px
+count 4 subset 0: fy differs by 1.16 %; mean error differs by 0.069 px
+count 4 subset 1: cx differs by 6.0 px
+count 4 subset 2: cx differs by 2.5 px
+count 4 subset 3: fy differs by 1.08 %; cx differs by 6.7 px; cy differs by 2.2 px
+count 4 subset 4: cx differs by 21.6 px; mean error differs by 0.059 px
+count 4 subset 7: cy differs by 2.5 px
+count 4 subset 8: cx differs by 8.2 px; cy differs by 2.6 px; mean error differs by 0.084 px
+count 4 subset 9: cx differs by 3.1 px; mean error differs by 0.061 px
+count 5 subset 0: cx differs by 2.8 px; cy differs by 2.1 px
+count 5 subset 1: cx differs by 8.1 px; cy differs by 3.7 px
+count 5 subset 2: cx differs by 7.0 px
+count 5 subset 3: cx differs by 2.8 px
+count 5 subset 4: cx differs by 3.6 px
+count 5 subset 5: cx differs by 4.2 px
+count 5 subset 6: cx differs by 8.9 px
+count 5 subset 9: cx differs by 8.1 px
+count 6 subset 0: cx differs by 7.7 px
+count 6 subset 1: cy differs by 2.3 px
+count 6 subset 2: cx differs by 2.5 px
+count 6 subset 3: cy differs by 4.4 px
+count 6 subset 4: cy differs by 4.6 px
+count 6 subset 6: fx differs by 1.45 %; fy differs by 1.67 %; cx differs by 15.7 px
+count 6 subset 9: cx differs by 4.9 px; cy differs by 2.8 px
+count 7 subset 0: cy differs by 2.1 px
+count 7 subset 1: mean error differs by 0.052 px
+count 7 subset 2: cx differs by 5.3 px; cy differs by 3.4 px
+count 7 subset 4: cx differs by 5.3 px
+count 7 subset 8: cy differs by 3.1 px
+count 8 subset 3: cx differs by 4.4 px
+count 8 subset 4: cx differs by 5.7 px
+count 8 subset 6: cx differs by 2.4 px
+count 8 subset 7: cx differs by 5.4 px; mean error differs by 0.058 px
+count 8 subset 8: cx differs by 2.1 px; mean error differs by 0.051 px
+count 8 subset 9: cx differs by 5.7 px
+count 9 subset 2: cx differs by 2.6 px
+count 9 subset 3: cy differs by 2.1 px
+count 9 subset 7: cy differs by 5.9 px; mean error differs by 0.065 px
+count 9 subset 8: cy differs by 2.8 px
+count 10 subset 0: cx differs by 2.0 px
+count 10 subset 1: cx differs by 2.1 px
+count 10 subset 2: cx differs by 4.0 px; mean error differs by 0.055 px
+count 10 subset 4: cx differs by 2.1 px; cy differs by 2.1 px
+count 10 subset 7: cx differs by 3.4 px; cy differs by 2.6 px
+count 11 subset 0: cx differs by 5.5 px
+count 11 subset 1: cx differs by 5.3 px
+count 11 subset 2: cx differs by 3.9 px
+count 11 subset 5: cx differs by 3.9 px
+count 11 subset 6: mean error differs by 0.051 px
+count 12 subset 1: cx differs by 3.2 px
+count 12 subset 4: cx differs by 2.7 px
+count 13 subset 3: cy differs by 2.2 px
+count 13 subset 8: cx differs by 2.3 px
+count 14 subset 0: mean error differs by 0.050 px
+count 15 subset 0: cx differs by 2.6 px
+count 15 subset 7: cx differs by 2.3 px
+count 16 subset 9: cy differs by 2.2 px
+count 17 subset 2: cx differs by 2.1 px
+count 17 subset 5: cx differs by 2.6 px
+count 19 subset 2: cx differs by 2.4 px
+count 19 subset 3: cx differs by 2.8 px
+count 19 subset 4: cx differs by 2.0 px

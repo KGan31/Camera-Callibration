@@ -1,0 +1,41 @@
+count 3 subset 4: cy differs by 2.4 px
+count 3 subset 5: cx differs by 2.2 px
+count 3 subset 6: cx differs by 2.5 px
+count 3 subset 8: cx differs by 2.1 px
+count 3 subset 9: cx differs by 2.3 px
+count 4 subset 6: cy differs by 3.8 px
+count 5 subset 0: cx differs by 2.5 px; cy differs by 2.3 px
+count 5 subset 1: cx differs by 2.3 px; cy differs by 5.1 px
+count 5 subset 4: cy differs by 2.5 px
+count 6 subset 0: cx differs by 2.0 px
+count 6 subset 2: cy differs by 3.9 px
+count 6 subset 6: cx differs by 2.9 px; cy differs by 2.5 px
+count 6 subset 7: cx differs by 2.1 px
+count 6 subset 8: cx differs by 4.3 px; cy differs by 2.2 px
+count 7 subset 9: cy differs by 2.8 px
+count 8 subset 0: cy differs by 2.5 px
+count 8 subset 1: cy differs by 3.0 px
+count 8 subset 7: cx differs by 2.7 px
+count 8 subset 9: cy differs by 2.9 px
+count 9 subset 1: cy differs by 3.1 px
+count 9 subset 5: cx differs by 2.6 px
+count 9 subset 8: cx differs by 2.4 px
+count 9 subset 9: cx differs by 2.3 px; cy differs by 2.7 px
+count 10 subset 2: mean error differs by 0.053 px
+count 10 subset 3: cy differs by 2.3 px
+count 12 subset 9: cx differs by 2.2 px
+count 13 subset 3: cy differs by 2.1 px
+count 14 subset 1: cy differs by 2.1 px
+count 14 subset 7: cy differs by 2.8 px
+count 15 subset 5: cy differs by 2.1 px
+count 15 subset 6: cx differs by 2.5 px
+count 15 subset 7: cy differs by 3.0 px
+count 15 subset 8: cy differs by 2.7 px
+count 16 subset 0: cy differs by 2.2 px
+count 17 subset 8: cx differs by 2.5 px
+count 18 subset 1: cy differs by 2.3 px
+count 19 subset 2: cy differs by 2.2 px
+count 20 subset 5: cy differs by 2.1 px
+count 22 subset 1: cy differs by 2.0 px
+count 22 subset 8: cy differs by 2.3 px
+count 24 subset 9: cy differs by 2.2 px
