@@ -34,8 +34,44 @@ except ImportError:
     from synthetic_calib.refine import refine_corner
 
 
-def evaluate_single_image(img_path, model, cv_board, aruco_detector, charuco_detector, drift_thresh=3.0, w=5):
-    """Run both pipelines on a single image and compute comparison metrics."""
+def adaptive_drift_threshold(n_markers, base=2.5, scale=15.0, max_thresh=8.0):
+    """
+    Compute an image-adaptive drift threshold for sub-pixel refinement.
+
+    Rationale: In oblique/foreshortened views, fewer markers are detected and
+    each marker's homography covers a larger board region with less accuracy.
+    The initial corner prediction error grows as ~1/sqrt(n_markers), so we
+    scale the allowed drift inversely.
+
+    Parameters
+    ----------
+    n_markers : int   Number of ArUco markers successfully detected.
+    base      : float Minimum threshold (px) — used when many markers present.
+    scale     : float Controls how much the threshold grows with fewer markers.
+    max_thresh: float Hard cap (px) to prevent accepting garbage refinements.
+
+    Returns
+    -------
+    float  Drift threshold in pixels.
+    """
+    if n_markers <= 0:
+        return max_thresh
+    thresh = base + scale / np.sqrt(n_markers)
+    return float(min(thresh, max_thresh))
+
+
+def evaluate_single_image(img_path, model, cv_board, aruco_detector, charuco_detector,
+                          drift_thresh=None, adaptive=True, w=5):
+    """Run both pipelines on a single image and compute comparison metrics.
+
+    Parameters
+    ----------
+    drift_thresh : float or None
+        Fixed drift threshold (px). Ignored if adaptive=True.
+    adaptive : bool
+        If True, compute drift_thresh adaptively from n_markers using
+        adaptive_drift_threshold(). Overrides drift_thresh.
+    """
     gray = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
     if gray is None:
         raise FileNotFoundError(f"Failed to read image at {img_path}")
@@ -43,6 +79,12 @@ def evaluate_single_image(img_path, model, cv_board, aruco_detector, charuco_det
     # --- 1. Custom Pipeline ---
     mc, mids, _ = aruco_detector.detectMarkers(gray)
     n_markers = 0 if mids is None else len(mids)
+
+    # Determine effective drift threshold
+    if adaptive:
+        drift_thresh = adaptive_drift_threshold(n_markers)
+    elif drift_thresh is None:
+        drift_thresh = 3.0
 
     pred = {}
     ours = {}
@@ -71,6 +113,7 @@ def evaluate_single_image(img_path, model, cv_board, aruco_detector, charuco_det
     metrics = {
         "image": img_path.name,
         "n_markers": n_markers,
+        "drift_thresh_used": round(drift_thresh, 3),
         "n_pred": len(pred),
         "n_ours": len(ours),
         "n_cv": len(ref),
@@ -257,7 +300,7 @@ def run_benchmark():
 
     for idx, p in enumerate(img_paths, 1):
         metrics, details = evaluate_single_image(
-            p, model, cv_board, aruco_detector, charuco_detector, drift_thresh=3.0, w=5
+            p, model, cv_board, aruco_detector, charuco_detector, adaptive=True, w=5
         )
         results.append(metrics)
         all_details[p.name] = details
@@ -266,8 +309,10 @@ def run_benchmark():
         mean_str = f"{metrics['mean_dist']:.3f} px" if not np.isnan(metrics['mean_dist']) else "N/A"
         rms_str = f"{metrics['rms_dist']:.3f} px" if not np.isnan(metrics['rms_dist']) else "N/A"
         max_str = f"{metrics['max_dist']:.3f} px" if not np.isnan(metrics['max_dist']) else "N/A"
+        drift_str = f"{metrics['drift_thresh_used']:.2f}px"
         print(f"[{idx:2d}/{len(img_paths)}] {p.name:<10} | markers:{metrics['n_markers']:2d} | "
-              f"ours:{metrics['n_ours']:2d} | cv:{metrics['n_cv']:2d} | common:{metrics['n_common']:2d} | "
+              f"thr:{drift_str:<7} | ours:{metrics['n_ours']:2d} | cv:{metrics['n_cv']:2d} | "
+              f"common:{metrics['n_common']:2d} | rejected:{metrics['drift_rejected']:2d} | "
               f"mean:{mean_str:>9} | rms:{rms_str:>9} | max:{max_str:>9}")
 
     df = pd.DataFrame(results)
